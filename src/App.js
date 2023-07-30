@@ -10,9 +10,8 @@ function App() {
   const [addItem,setAddItem] = useState('');
   const [search,setSearch] = useState('');
 
-  useEffect = (()=>{
-    JSON.parse(localStorage.getItem('to-do-list')) 
-  },[])
+  useEffect = (()=>{JSON.parse(localStorage.getItem('to-do-list'))},[])
+
   const handleClick = (e)=>{
     e.preventDefault();
   }
@@ -33,10 +32,16 @@ function App() {
   const handleAdd = (e)=>{
     e.preventDefault();
       const id = items.length ? items[items.length -1].id +1 :1
-      const listItems = addItem.length ? [...items,{id:id,checked:true,item:addItem}] : alert("List Is Empty");
-      setAddItem('')
-      setItems(listItems)
-      localStorage.setItem('to-do-list',JSON.stringify(listItems))
+      if(addItem.length){
+        const listItems = [...items,{id:id,checked:true,item:addItem}]
+        setAddItem('')
+        setItems(listItems)
+        localStorage.setItem('to-do-list',JSON.stringify(listItems))
+      }
+      else{
+        alert("List Is Empty");
+      }
+       
   }
 
   
