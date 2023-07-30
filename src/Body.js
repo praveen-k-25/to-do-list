@@ -20,7 +20,7 @@ const Body = ({items,handleCheck,handleDelete}) => {
                     ))
                     }
                 </ul>
-                ): (<p style={{fontSize:"0.5rem"}}>Item List Is Empty</p>)
+                ): (<h2>Item List Is Empty</h2>)
         }
     </main>
   )

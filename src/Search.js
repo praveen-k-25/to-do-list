@@ -1,21 +1,25 @@
-import React from 'react'
+import { useRef } from 'react'
 
 const Search = ({addItem,setAddItem,Search,setSearch,handleAdd}) => {
+  const inputRef = useRef(); 
   return (
     <div className='seach-box'>
-        <form onSubmit={(e)=>(e.preventDefault())}>
+        <form onSubmit={handleAdd}>
           <input type="text"
+            id='search'
+            ref={inputRef}
             placeholder='List Name'
             value={addItem}
             onChange={(e)=>(setAddItem(e.target.value))}
           />
           <button
             id='btn'
-            onClick={addItem.length > 1? handleAdd : ()=>alert("list Name is empty")}
+            type='submit'
+            onClick={()=>inputRef.current.focus()}
           >+</button>
         </form>
         <input type="text"
-        id='search'
+            id='search'
             placeholder='Search'
             value={Search}
             onChange={(e)=>(setSearch(e.target.value))}

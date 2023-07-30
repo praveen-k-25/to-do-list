@@ -19,6 +19,7 @@ code {
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 600px;
   min-height: 100vh;
   border: 2px solid blue;
   margin: auto;
@@ -31,7 +32,7 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
 }
 main{
   width: 100%;
@@ -49,7 +50,7 @@ footer{
   bottom: 0;
 }
 input[type=text]{
-  
+  font-size: 1.5rem;
   margin-top: 5px;
   border: 2px solid black;
   box-shadow: 2px 2px 5px black;
@@ -70,13 +71,13 @@ li{
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
 }
 ul{
   width: 80%;
 }
 #btn{
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin-top: 5px;
   border: 2px solid black;
   box-shadow: 2px 2px 5px black;
@@ -89,11 +90,11 @@ ul{
   flex-direction: column;
 }
 form{
-  display: flex;
-  width: 70%;
-  flex-grow: 1;
+  padding: 0 3%;
 }
 #search{
   width: 70%;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
