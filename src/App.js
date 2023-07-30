@@ -6,12 +6,27 @@ import Footer from './Footer.js';
 import Search from './Search';
 
 function App() {
+  const API_URL = 'http://localhost:3500/items';
   const [items,setItems] = useState([])
   const [addItem,setAddItem] = useState('');
   const [search,setSearch] = useState('');
-
-  useEffect = (()=>{JSON.parse(localStorage.getItem('to-do-list'))},[])
-
+  const [fetchError,setFetchError] = useState(null);
+  useEffect (()=>{
+    const fetch_item = async()=>{
+      try{
+        const response = await fetch(API_URL);
+        if(!response.ok) throw Error("Data Not Recieved")
+        const list_items = await response.json();
+        setItems(list_items)
+      } catch (err){
+          setFetchError(err.message);
+      }
+    }
+    setTimeout(()=>{
+      (async ()=>{await fetch_item()})()
+    },2000);
+    
+  },[])
   const handleClick = (e)=>{
     e.preventDefault();
   }
@@ -33,7 +48,7 @@ function App() {
     e.preventDefault();
       const id = items.length ? items[items.length -1].id +1 :1
       if(addItem.length){
-        const listItems = [...items,{id:id,checked:true,item:addItem}]
+        const listItems = [...items,{id:id,checked:false,item:addItem}]
         setAddItem('')
         setItems(listItems)
         localStorage.setItem('to-do-list',JSON.stringify(listItems))
@@ -59,11 +74,18 @@ function App() {
         setSearch ={setSearch}
         handleAdd={handleAdd}
       />
-      <Body
+      {/* when the error happened the error will shown to the user, else body component will execute...*/}
+      <main>
+        {
+          (fetchError) ? <p>{`Error : ${fetchError}`}</p> : <Body
         items={items.filter(item => (item.item).toLowerCase().includes(search.toLowerCase()))}
         handleCheck={handleCheck}
         handleDelete={handleDelete}
       />
+        }
+        
+      </main>
+      
       <Footer
         items = {items}
       />

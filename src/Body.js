@@ -2,7 +2,7 @@ import React from 'react'
 
 const Body = ({items,handleCheck,handleDelete}) => {
   return (
-    <main>
+    <>
         {(items.length) ? (
                 <ul>
                     {items.map((item)=>(
@@ -22,7 +22,7 @@ const Body = ({items,handleCheck,handleDelete}) => {
                 </ul>
                 ): (<h2>Item List Is Empty</h2>)
         }
-    </main>
+    </>
   )
 }
 
