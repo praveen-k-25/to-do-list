@@ -1,19 +1,34 @@
 {
-    "items" : [
-        {
-            "id":1,
-            "checked":false,
-            "item":"Html"
-        },
-        {
-            "id":2,
-            "checked":true,
-            "item":"CSS"
-        },
-        {
-            "id":3,
-            "checked":false,
-            "item":"Js"
-        }
-    ]
+  "items": [
+    {
+      "id": 2,
+      "checked": true,
+      "item": "CSS"
+    },
+    {
+      "id": 3,
+      "checked": true,
+      "item": "Js"
+    },
+    {
+      "id": 9,
+      "checked": true,
+      "item": "git"
+    },
+    {
+      "id": 10,
+      "checked": true,
+      "item": "HTML"
+    },
+    {
+      "id": 11,
+      "checked": false,
+      "item": "React"
+    },
+    {
+      "id": 12,
+      "checked": false,
+      "item": "UI/UX"
+    }
+  ]
 }

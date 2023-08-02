@@ -1,5 +1,5 @@
 import React from 'react'
-
+ 
 const Body = ({items,handleCheck,handleDelete}) => {
   return (
     <>
